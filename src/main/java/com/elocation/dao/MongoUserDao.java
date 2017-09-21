@@ -31,7 +31,7 @@ public class MongoUserDao implements UserDao {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getUserById(Long id) {
        return userRepository.findById(id);
     }
 

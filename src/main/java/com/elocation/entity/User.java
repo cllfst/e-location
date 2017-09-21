@@ -6,11 +6,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
+
 @Document(collection = "user")
-public class User {
+public class User implements java.io.Serializable {
 
     @Id
-    private int id;
+    private Long id;
     @Indexed(unique = true)
     private String username;
     private String adressemail;
@@ -18,7 +20,7 @@ public class User {
     private String prenom;
     private String nom;
 
-    public User(int id, String username, String adressemail, String password, String prenom, String nom) {
+    public User(Long id, String username, String adressemail, String password, String prenom, String nom) {
         this.id = id;
         this.username = username;
         this.adressemail = adressemail;
@@ -27,7 +29,7 @@ public class User {
         this.nom = nom;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
 
         this.id = id;
     }
@@ -52,7 +54,7 @@ public class User {
         this.nom = nom;
     }
 
-    public int getId() {
+    public Long getId() {
 
         return id;
     }

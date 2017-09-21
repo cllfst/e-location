@@ -8,7 +8,7 @@ import java.util.List;
 public interface UserDaoReository extends MongoRepository<User, String> {
     User findFirstByUsername(String Username);
 
-    User findById(int ID);
+    User findById(Long ID);
 
     //Supports native JSON query string
     @Query("{User:'?0'}")
