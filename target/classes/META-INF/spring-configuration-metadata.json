@@ -1,0 +1,23 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.cllfst.AppConfig",
+      "name": "app",
+      "type": "com.cllfst.AppConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.cllfst.AppConfig",
+      "name": "app.secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.cllfst.AppConfig",
+      "defaultValue": 0,
+      "name": "app.token-validity-in-seconds",
+      "type": "java.lang.Long"
+    }
+  ]
+}
