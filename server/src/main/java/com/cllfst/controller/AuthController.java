@@ -1,8 +1,9 @@
-package com.cllfst;
+package com.cllfst.controller;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import com.cllfst.Application;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
