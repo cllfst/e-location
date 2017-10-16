@@ -1,9 +1,11 @@
-package com.cllfst.controller;
+package com.cll.elocation;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import com.cllfst.Application;
+import com.cll.elocation.entities.User;
+import com.cll.elocation.services.UserService;
+import com.cll.elocation.security.jwt.TokenProvider;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -13,10 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.cllfst.entities.User;
-import com.cllfst.services.UserService;
-import com.cllfst.security.jwt.TokenProvider;
 
 @RestController
 @CrossOrigin
@@ -37,20 +35,18 @@ public class AuthController {
 		this.passwordEncoder = passwordEncoder;
 		this.authenticationManager = authenticationManager;
 
-	//	User user = new User();
-	///	user.setUsername("admin");
-		//user.setPassword(this.passwordEncoder.encode("admin"));
-		//user.setEmail("admin@admin.com");
-	//	user.setName("admin admin");
-	//	this.userService.save(user);
+		User user = new User();
+		user.setUsername("admin");
+		user.setPassword(this.passwordEncoder.encode("admin"));
+		this.userService.save(user);
 	}
-	
+
     @GetMapping("/authenticate")
     public void authenticate() {
     	// we don't have to do anything here
     	// this is just a secure endpoint and the JWTFilter
     	// validates the token
-    	// this service is called at startup of the app to check 
+    	// this service is called at startup of the app to check
     	// if the jwt token is still valid
     }
 
@@ -70,7 +66,7 @@ public class AuthController {
 			return null;
 		}
 	}
-	
+
 	@PostMapping("/signup")
 	public String signup(@RequestBody User signupUser) {
 		if (this.userService.usernameExists(signupUser.getUsername())) {

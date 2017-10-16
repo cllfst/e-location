@@ -1,8 +1,7 @@
-package com.cllfst.entities;
+package com.cll.elocation.entities;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -25,45 +24,28 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name="id_user")
-    private Long idUser;
-    
-    @Column(name="username")
+    private Long jobId;
+
     private String username;
-
-    @Column(name="name")
-    private String name;
-
-    
-    @Column(name="email")
+    private String firstName;
+    private String secondName;
     private String email;
-    
-    @Column(name="password")
     private String password;
 
     public User() {
         super();
     }
 
-    public User(String username, String name, String email, String password) {
+    public User(String username, String firstName, String secondName, String email, String password) {
         super();
         this.username = username;
-        this.name = name;
+        this.firstName = firstName;
+        this.secondName = secondName;
         this.email = email;
         this.password = password;
     }
-    
-    
 
-    public Long getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
-	}
-
-	public String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -71,15 +53,21 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
+    public String getSecondName() {
+        return secondName;
+    }
 
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
 
     public String getEmail() {
         return email;

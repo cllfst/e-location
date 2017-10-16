@@ -1,6 +1,6 @@
-package com.cllfst.security;
+package com.cll.elocation.security;
 
-import com.cllfst.security.jwt.JWTConfigurer;
+import com.cll.elocation.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
-import com.cllfst.security.jwt.TokenProvider;
+import com.cll.elocation.security.jwt.JWTConfigurer;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -36,15 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		  .sessionManagement()
 			.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 			.and()
-		//.httpBasic() // optional, if you want to access 
+		//.httpBasic() // optional, if you want to access
 		//  .and()     // the services from a browser
 		  .authorizeRequests()
 		    .antMatchers("/signup").permitAll()
 		    .antMatchers("/login").permitAll()
 		    .antMatchers("/public").permitAll()
-			.antMatchers("/users/{id}").permitAll()
-
-				.anyRequest().authenticated()
+		    .anyRequest().authenticated()
 		    .and()
 		  .apply(new JWTConfigurer(this.tokenProvider));
 		// @formatter:on

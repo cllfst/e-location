@@ -1,13 +1,13 @@
-package com.cllfst.services;
+package com.cll.elocation.services;
 
 
-import com.cllfst.dao.UserRepository;
-import com.cllfst.entities.User;
+import com.cll.elocation.dao.UserRepository;
+import com.cll.elocation.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+//@EnableJpaRepositories("com.cll.elocation.dao")
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User lookup(String username) {
 
-        return userRepository.findUserByUsername(username);
+        return userRepository.findById(username).get();
     }
 
     @Override
@@ -33,22 +33,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean usernameExists(String username) {
         return userRepository.equals(username);
-    }
-    @Override
-    public List<User> getAllUsers() {
-
-        return userRepository.findAll();
-    }
-
-    @Override
-    public void removeUser(String username) {
-
-        userRepository.deleteUserByUsername(username);
-
-    }
-    @Override
-    public User getUserById(Long id){
-        return this.userRepository.findUserByIdUser(id);
     }
 }
 

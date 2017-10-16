@@ -1,7 +1,7 @@
-package com.cllfst.dao;
+package com.cll.elocation.dao;
 
 
-import com.cllfst.entities.User;
+import com.cll.elocation.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,10 +12,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
-
-    User findUserByIdUser(Long id);
-    //void removeUserByIdUser(Long id);
-    User findUserByUsername(String username);
-    void deleteUserByUsername(String username);
 
 }
