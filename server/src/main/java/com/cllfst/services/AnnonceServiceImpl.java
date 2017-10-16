@@ -36,5 +36,16 @@ public class AnnonceServiceImpl implements AnnonceService {
         return annonceRepository.findAll();
     }
 
+    @Override
+    public Annonce getAnnonceById(Long id){
+        return this.annonceRepository.findAnnonceByIdAd(id);
+    }
+
+    @Override
+    public void removeAnnonceById(Long id){
+        this.annonceRepository.removeAnnonceByIdAd(id);
+    }
+
 }
+
 

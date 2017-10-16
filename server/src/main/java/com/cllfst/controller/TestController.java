@@ -6,9 +6,7 @@ import com.cllfst.entities.User;
 import com.cllfst.services.AnnonceService;
 import com.cllfst.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
@@ -42,5 +40,15 @@ public class TestController {
 	@CrossOrigin
 	public Collection<Annonce> getAllAnnonces(){return annonceService.getAll();}
 
+	@GetMapping(value ="annonces/{id}")
+	public Annonce getAnnonceById(@PathVariable("id") Long id){
 
+		return annonceService.getAnnonceById(id);
+	}
+
+	@GetMapping(value ="users/{id}")
+	public User getUserById(@PathVariable("id") Long id){
+
+		return userService.getUserById(id);
+	}
 }

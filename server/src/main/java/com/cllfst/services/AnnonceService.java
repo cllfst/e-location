@@ -10,4 +10,10 @@ public interface AnnonceService {
     void save(Annonce annonce);
 
     List <Annonce> getAll();
+
+    Annonce getAnnonceById(Long id);
+
+    void removeAnnonceById(Long id);
+
+
 }

@@ -2,13 +2,13 @@ package com.cllfst.security;
 
 import java.util.Collections;
 
-import com.cllfst.db.User;
+import com.cllfst.entities.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.cllfst.db.UserService;
+import com.cllfst.services.UserService;
 
 @Component
 public class AppUserDetailService implements UserDetailsService {
@@ -23,6 +23,8 @@ public class AppUserDetailService implements UserDetailsService {
 	public final UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException {
 		final User user = this.userService.lookup(username);
+		System.out.println("user="+user);
+
 		if (user == null) {
 			throw new UsernameNotFoundException("User '" + username + "' not found");
 		}
