@@ -1,7 +1,8 @@
 # e-location 
-Nous fournirons une plateforme mobile pour ceux qui veulent louer des appartements (étudiants, familles..) et pour les propriétaires pour annonçer leurs offres. Technologies : Android ou bien les technologies web (html, css, js) côté client, nodejs côté serveur 
+Nous fournirons une plateforme mobile pour ceux qui veulent louer des appartements (étudiants, familles..) et pour les propriétaires pour annonçer leurs offres. Technologies : Android ou bien les technologies web (html, css, js) côté client, SpringBoot côté serveur 
 le projet et sur 2 parties : 
-une partie front avec Ionic3  
+une partie front avec Ionic3  :
+https://github.com/KsentiniAhmed/Elocation-front
 et une partie Backend avec SpringBoot 
  
 partie client (FrontEnd) 
